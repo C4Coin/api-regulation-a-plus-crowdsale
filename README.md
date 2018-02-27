@@ -4,8 +4,8 @@ The API that interfaces between C4Coin's Regulation A+ Crowdsale website and sma
 
 The main C4Coin Public facing website
 
-* `develop` — [insert CircleCI badge]
-* `master` — [insert CircleCI badge]
+* `develop` — [![CircleCI](https://circleci.com/gh/C4Coin/api-regulation-a-plus-crowdsale/tree/develop.svg?style=svg)](https://circleci.com/gh/C4Coin/api-regulation-a-plus-crowdsale/tree/develop) [add codecov badge]
+* `master` — [![CircleCI](https://circleci.com/gh/C4Coin/api-regulation-a-plus-crowdsale/tree/master.svg?style=svg)](https://circleci.com/gh/C4Coin/api-regulation-a-plus-crowdsale/tree/master) [add codecov badge]
 
 ## Functional Requirements
 

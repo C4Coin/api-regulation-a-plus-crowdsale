@@ -11,6 +11,20 @@ The main C4Coin Public facing website
 
 _add details_
 
+### API Routes
+
+#### `GET /ping`
+
+Returns a heartbeat response.
+
+    {
+      "response": "okay"
+    }
+
+#### `GET /api/v1`
+
+_fill the rest of this in_
+
 ## Development
 
 _add details_
@@ -25,21 +39,36 @@ _add details_
 
     npm install
 
-### Testing
+### To Start the API server while working on API clients.
 
-Run unit tests with
+    docker-compose up -d
 
-    npm test
+Runs the database and server within docker, exposing the API on port `3001`.
 
-or with code coverage
+### To Start the server to work on the server itself
 
-    npm run test:cov
+    npm install
 
-Run integration tests with
+Run `docker-compose up -d db` to only start Postgres,
 
-    nom run test:integration
+Then run `npm start` to start the api server on port `3000`
 
-### Linting
+### Seed some data
+
+With the database running, run
+
+    I_KNOW_WHAT_I_AM_DOING=true npm run seed
+
+### Test it
+
+run `docker-compose up db -d` to only start Postgres, then:
+
+* `npm test` — runs the unit tests (quick)
+* `npm run test:db` — runs the database tests (not so quick)
+* `npm run test:server` — runs the API endpoint tests (not so quick)
+* `npm run test:db` — runs all the tests (slowest of all)
+
+### Lint it
 
     npm run lint
 

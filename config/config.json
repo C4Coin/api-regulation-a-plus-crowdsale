@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "docker",
+    "password": "docker",
+    "database": "c4coin-api-cs-dev",
+    "host": "localhost",
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "docker",
+    "password": "docker",
+    "database": "c4coin-api-cs-test",
+    "host": "localhost",
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "docker",
+    "password": "docker",
+    "database": "c4coin-api-cs-prod",
+    "host": "localhost",
+    "dialect": "postgres"
+  }
+}

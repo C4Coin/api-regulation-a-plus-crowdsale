@@ -1,17 +1,17 @@
-const path = require("path")
+const path = require('path')
 
-const parseDatabaseUrl = require("./dbUrlParser")
+const parseDatabaseUrl = require('./dbUrlParser')
 
-const env = process.env.NODE_ENV || "development"
+const env = process.env.NODE_ENV || 'development'
 
 // eslint-disable-next-line import/no-dynamic-require
 let config = require(path.join(
   __dirname,
-  "..",
-  "..",
-  "..",
-  "config",
-  "config.json"
+  '..',
+  '..',
+  '..',
+  'config',
+  'config.json'
 ))[env]
 
 if (process.env.DATABASE_URL) {
@@ -38,9 +38,9 @@ const poolOptions = config.pool
     }
 
 const options = {
-  host: process.env.DB_HOST || config.host || "localhost",
+  host: process.env.DB_HOST || config.host || 'localhost',
   port: process.env.DB_PORT || config.port || 5432,
-  dialect: process.env.DB_TYPE || config.dialect || "postgres",
+  dialect: process.env.DB_TYPE || config.dialect || 'postgres',
   pool: poolOptions,
   operatorsAliases: false, // see https://github.com/sequelize/sequelize/issues/8417
   logging: false // this can be a logging function.

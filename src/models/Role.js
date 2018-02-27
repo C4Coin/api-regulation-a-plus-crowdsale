@@ -1,6 +1,6 @@
 const model = (sequelize, DataTypes) => {
   const Role = sequelize.define(
-    "Role",
+    'Role',
     {
       name: {
         type: DataTypes.STRING,
@@ -15,14 +15,14 @@ const model = (sequelize, DataTypes) => {
       indexes: [
         {
           unique: true,
-          fields: ["name"]
+          fields: ['name']
         }
       ]
     }
   )
 
   Role.associate = ({ User }) => {
-    Role.belongsToMany(User, { through: "RoleUser" })
+    Role.belongsToMany(User, { through: 'RoleUser' })
   }
 
   return Role

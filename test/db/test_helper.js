@@ -1,11 +1,11 @@
-require("sinon")
-const chai = require("chai")
-const sinonChai = require("sinon-chai")
-const chaiString = require("chai-string")
+require('sinon')
+const chai = require('chai')
+const sinonChai = require('sinon-chai')
+const chaiString = require('chai-string')
 
-const prepare = require("mocha-prepare-promise")
-const dbInit = require("../../src/utils/db/dbInit")
-const models = require("../../src/models")
+const prepare = require('mocha-prepare-promise')
+const dbInit = require('../../src/utils/db/dbInit')
+const models = require('../../src/models')
 
 chai.use(sinonChai)
 chai.use(chaiString)

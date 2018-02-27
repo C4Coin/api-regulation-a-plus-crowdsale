@@ -1,8 +1,8 @@
-const { expect } = require("chai")
-const request = require("supertest")
-const { start } = require("../../src/server")
+const { expect } = require('chai')
+const request = require('supertest')
+const { start } = require('../../src/server')
 
-describe("Routes", () => {
+describe('Routes', () => {
   let server
   let db
 
@@ -15,14 +15,14 @@ describe("Routes", () => {
     db.close()
   })
 
-  describe("Ping", () => {
-    it("returns an Okay result and status code 200", done => {
+  describe('Ping', () => {
+    it('returns an Okay result and status code 200', done => {
       request(server)
-        .get("/ping")
+        .get('/ping')
         .end((err, res) => {
           expect(err).to.not.exist
           expect(res.statusCode).to.equal(200)
-          expect(res.body.response).to.equal("Okay")
+          expect(res.body.response).to.equal('Okay')
           done()
         })
     })

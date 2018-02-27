@@ -1,7 +1,7 @@
-const loadYAML = require("./loadYAML")
+const loadYAML = require('./loadYAML')
 
 const loadData = () => {
-  const roles = loadYAML("roles")
+  const roles = loadYAML('roles')
   return { roles }
 }
 

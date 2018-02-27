@@ -1,4 +1,4 @@
-const createRole = require("./createRole")
+const createRole = require('./createRole')
 
 const createRoles = async roles => Promise.all(roles.map(createRole))
 

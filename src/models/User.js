@@ -1,8 +1,8 @@
-const bcrypt = require("bcrypt")
+const bcrypt = require('bcrypt')
 
 const model = (sequelize, DataTypes) => {
   const User = sequelize.define(
-    "User",
+    'User',
     {
       username: {
         type: DataTypes.STRING,
@@ -53,11 +53,11 @@ const model = (sequelize, DataTypes) => {
       indexes: [
         {
           unique: true,
-          fields: ["username"]
+          fields: ['username']
         },
         {
           unique: true,
-          fields: ["email"]
+          fields: ['email']
         }
       ],
       instanceMethods: {
@@ -84,15 +84,15 @@ const model = (sequelize, DataTypes) => {
     user.email = user.email.toLowerCase()
     encryptPassword(user.password)
       .then(hashed => {
-        user.set("passwordHash", hashed)
+        user.set('passwordHash', hashed)
       })
       .catch(err => {
-        console.error("error hashing password", err)
+        console.error('error hashing password', err)
       })
   }
 
   User.associate = ({ Role }) => {
-    User.belongsToMany(Role, { through: "RoleUser" })
+    User.belongsToMany(Role, { through: 'RoleUser' })
   }
 
   User.beforeCreate(preprocess)

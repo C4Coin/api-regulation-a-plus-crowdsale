@@ -1,0 +1,41 @@
+version: "3"
+volumes:
+  # We'll define a volume that will store the data from the postgres databases:
+  postgres-data:
+    driver: local
+
+services:
+  db:
+    # replace username/repo:tag with your name and image details
+    image: postgres:9.6.2
+    ports:
+      - 5432:5432
+    volumes:
+      - postgres-data:/var/lib/postgresql
+    healthcheck:
+      test: "exit 0"
+    environment:
+      POSTGRES_USER: docker
+      POSTGRES_PASSWORD: docker
+    networks:
+      - apiserver
+  server:
+    build: .
+    ports:
+      - 3001:3000
+    links:
+      - db
+    depends_on:
+        - db
+    healthcheck:
+      test: "exit 0"
+    environment:
+      DB_USER: docker
+      DB_PASS: docker
+      DB_HOST: db
+    command: ["./start.sh", "db", "npm", "start"]
+    networks:
+      - apiserver
+
+networks:
+  apiserver:

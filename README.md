@@ -1,5 +1,7 @@
 # api-regulation-a-plus-crowdsale
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/C4Coin/api-regulation-a-plus-crowdsale.svg)](https://greenkeeper.io/)
+
 The API that interfaces between C4Coin's Regulation A+ Crowdsale website and smart contracts
 
 The main C4Coin Public facing website

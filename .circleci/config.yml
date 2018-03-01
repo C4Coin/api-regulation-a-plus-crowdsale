@@ -68,6 +68,8 @@ jobs:
           command: npm run test:server
 
       # TODO: Work out a way to only do this once.
+      #       Probably by only doing coverage of the unit tests
+      #       and making sure the unit tests cover everything.
       - run:
           name: All tests again with code coverage
           command: npm run test:all:cov

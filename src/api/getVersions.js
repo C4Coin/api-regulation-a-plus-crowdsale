@@ -1,4 +1,4 @@
-const getPing = (req, res) => {
+const getVersions = (req, res) => {
   res.json([
     {
       version: 1,
@@ -7,4 +7,4 @@ const getPing = (req, res) => {
   ])
 }
 
-module.exports = getPing
+module.exports = getVersions

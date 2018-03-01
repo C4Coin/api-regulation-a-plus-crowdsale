@@ -52,7 +52,7 @@ describe('Routes', () => {
         .end((err, res) => {
           expect(err).to.not.exist
           expect(res.statusCode).to.equal(200)
-          expect(res.body.test).to.equal('test')
+          expect(res.body.token).to.equal('some-awesome-jwt')
           done()
         })
     })

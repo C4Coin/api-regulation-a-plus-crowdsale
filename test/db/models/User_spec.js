@@ -11,16 +11,25 @@ describe('User', () => {
   })
 
   describe('create', () => {
-    describe('given basic valid data', () => {
-      const data = dummyData.userData()
+    context('given basic valid data', () => {
+      let data
+      let instance
+      before(async () => {
+        data = dummyData.userData()
+        instance = await User.create(data, { include: [{ all: true }] })
+      })
 
-      it('creates a user', async () => {
-        const instance = await User.create(data, { include: [{ all: true }] })
+      it('created a user correctly', () => {
         const js = instance.get({ plain: true })
         expect(js).to.have.property('username', data.username)
         expect(js).to.have.property('name', data.name)
         expect(js).to.have.property('email', data.email.toLowerCase())
         expect(js).to.have.property('passwordHash')
+        expect(js.passwordHash).to.exist
+      })
+
+      it('authenticates the user', async () => {
+        expect(await instance.authenticate(data.password)).to.be.true
       })
     })
   })

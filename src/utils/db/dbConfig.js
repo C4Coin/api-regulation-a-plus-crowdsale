@@ -28,12 +28,12 @@ const dbPass = process.env.DB_PASS || config.password || null
 const poolOptions = config.pool
   ? {
       max: process.env.DB_POOL_MAX || config.pool.max || 5,
-      min: process.env.DB_POOL_MIN || config.pool.min || 0,
+      min: process.env.DB_POOL_MIN || config.pool.min || 1,
       idle: process.env.DB_POOL_IDLE || config.pool.idle || 10000
     }
   : {
       max: process.env.DB_POOL_MAX || 5,
-      min: process.env.DB_POOL_MIN || 0,
+      min: process.env.DB_POOL_MIN || 1,
       idle: process.env.DB_POOL_IDLE || 10000
     }
 

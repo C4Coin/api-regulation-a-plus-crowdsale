@@ -6,8 +6,8 @@ The API that interfaces between C4Coin's Regulation A+ Crowdsale website and sma
 
 The main C4Coin Public facing website
 
-* `develop` — [![CircleCI](https://circleci.com/gh/C4Coin/api-regulation-a-plus-crowdsale/tree/develop.svg?style=svg)](https://circleci.com/gh/C4Coin/api-regulation-a-plus-crowdsale/tree/develop) [add codecov badge]
-* `master` — [![CircleCI](https://circleci.com/gh/C4Coin/api-regulation-a-plus-crowdsale/tree/master.svg?style=svg)](https://circleci.com/gh/C4Coin/api-regulation-a-plus-crowdsale/tree/master) [add codecov badge]
+* `develop` — [![CircleCI](https://circleci.com/gh/C4Coin/api-regulation-a-plus-crowdsale/tree/develop.svg?style=svg)](https://circleci.com/gh/C4Coin/api-regulation-a-plus-crowdsale/tree/develop) [![codecov](https://codecov.io/gh/C4Coin/api-regulation-a-plus-crowdsale/branch/develop/graph/badge.svg)](https://codecov.io/gh/C4Coin/api-regulation-a-plus-crowdsale)
+* `master` — [![CircleCI](https://circleci.com/gh/C4Coin/api-regulation-a-plus-crowdsale/tree/master.svg?style=svg)](https://circleci.com/gh/C4Coin/api-regulation-a-plus-crowdsale/tree/master) [![codecov](https://codecov.io/gh/C4Coin/api-regulation-a-plus-crowdsale/branch/master/graph/badge.svg)](https://codecov.io/gh/C4Coin/api-regulation-a-plus-crowdsale)
 
 ## Functional Requirements
 

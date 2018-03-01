@@ -39,29 +39,7 @@ Returns a list of API versions.
       }
     ]
 
-#### `GET /api/v1`
-
-Returns a list of V1 API routes
-
-    [
-      {
-        method: 'POST',
-        path: '/api/v1/login',
-        params: {
-          body: {
-            username: 'string',
-            password: 'string'
-          }
-        }
-      },
-      {
-        method: 'POST',
-        path: '/api/v1/logout',
-      }
-
-    ]
-
-#### `POST /api/v1/login`
+#### `POST /api/v1/login` (_not implemented_)
 
 Logs a user in via simple credentials (can be enhanced later to support 2fa)
 
@@ -84,7 +62,7 @@ Error Response
 
     401 Unauthorised
 
-#### `POST /api/v1/logout`
+#### `POST /api/v1/logout` (_not implemented_)
 
 Logs a user out
 

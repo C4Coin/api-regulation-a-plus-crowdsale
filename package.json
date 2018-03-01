@@ -25,13 +25,35 @@
     "test:db":
       "find ./test/db -name '*_spec.js' | NODE_ENV=test xargs mocha --require ./test/db/test_helper.js --bail",
     "test:unit":
-      "find ./test/unit -name '*_spec.js' | NODE_ENV=test xargs mocha --require ./test/unit/test_helper.js"
+      "find ./test/unit -name '*_spec.js' | NODE_ENV=test xargs mocha --require ./test/unit/test_helper.js",
+    "test:unit:cov":
+      "find ./test/unit -name '*_spec.js' | NODE_ENV=test xargs nyc mocha --require ./test/unit/test_helper.js",
+    "test:all:cov": "nyc npm run test:all"
   },
   "keywords": ["C4Coin", "api", "service", "crowdsale", "regulation a+"],
   "author": "Dave Sag <davesag@gmail.com>",
   "license": "UNLICENSED",
   "lint-staged": {
     "**/*.{js,json}": ["prettier --single-quote --no-semi --write", "git add"]
+  },
+  "nyc": {
+    "check-coverage": true,
+    "per-file": true,
+    "lines": 90,
+    "statements": 90,
+    "functions": 99,
+    "branches": 55,
+    "include": ["src/**/*.js"],
+    "exclude": [
+      "index.js",
+      "src/index.js",
+      "src/utils/asyncRoute.js",
+      "src/utils/db/dbInit.js",
+      "src/utils/db/dbConfig.js"
+    ],
+    "reporter": ["lcov", "text"],
+    "all": true,
+    "cache": true
   },
   "devDependencies": {
     "ajv": "^6.2.0",
@@ -52,6 +74,7 @@
     "lint-staged": "^7.0.0",
     "mocha": "^5.0.1",
     "mocha-prepare-promise": "0.0.1",
+    "nyc": "^11.4.1",
     "prettier": "^1.11.1",
     "proxyquire": "^1.8.0",
     "sinon": "^4.1.2",

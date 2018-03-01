@@ -67,14 +67,15 @@ jobs:
           name: Server Tests
           command: npm run test:server
 
-      # - run:
-      #     name: Unit tests with code coverage
-      #     command: npm run test:cov
-      #
+      # TODO: Work out a way to only do this once.
+      - run:
+          name: All tests again with code coverage
+          command: npm run test:all:cov
+
       - run:
           name: Push any lockfile changes
           command: greenkeeper-lockfile-upload
 
-      # - run:
-      #     name: Send reports to codecov.io
-      #     command: codecov
+      - run:
+          name: Send reports to codecov.io
+          command: codecov

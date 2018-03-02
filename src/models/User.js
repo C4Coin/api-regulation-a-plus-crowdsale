@@ -1,4 +1,4 @@
-const bcrypt = require('bcrypt')
+const { encrypt, authenticate } = require('../utils/authentication')
 
 const model = (sequelize, DataTypes) => {
   const User = sequelize.define(
@@ -59,36 +59,18 @@ const model = (sequelize, DataTypes) => {
           unique: true,
           fields: ['email']
         }
-      ],
-      instanceMethods: {
-        // TODO: make this async
-        authenticate(plainTextPassword) {
-          if (
-            bcrypt.compareSync(plainTextPassword, this.passwordDigest) &&
-            this.emailConfirmedAt !== null
-          )
-            return this
-          return false
-        }
-      }
+      ]
     }
   )
 
-  const encryptPassword = async password => {
-    const salt = await bcrypt.genSalt(10)
-    return bcrypt.hash(password, salt, null)
+  const preprocess = async (user, options) => {
+    user.set('email', user.email.toLowerCase())
+    const hashed = await encrypt(user.password)
+    user.set('passwordHash', hashed)
   }
 
-  const preprocess = (user, options) => {
-    // eslint-disable-next-line no-param-reassign
-    user.email = user.email.toLowerCase()
-    encryptPassword(user.password)
-      .then(hashed => {
-        user.set('passwordHash', hashed)
-      })
-      .catch(err => {
-        console.error('error hashing password', err)
-      })
+  User.prototype.authenticate = function(password) {
+    return authenticate(password, this.passwordHash)
   }
 
   User.associate = ({ Role }) => {

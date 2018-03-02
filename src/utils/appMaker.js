@@ -1,19 +1,17 @@
 const express = require('express')
 const cors = require('cors')
 
+const rest = require('./rest')
+
 // TODO: In the real app we'll want to pay more attention to site security
 // but for now I'm choosing to ignore this.
+
 const makeApp = () => {
   const app = express()
   app.use(cors())
-  app.get('/ping', (req, res) => {
-    res.json({
-      response: 'Okay'
-    })
-  })
-  // API routes
-  // app.get('/api/v1', getAPI)
+  // add any other middlewares here
 
+  rest(app) // apply the routes
   return app
 }
 

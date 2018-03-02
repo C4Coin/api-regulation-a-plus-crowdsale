@@ -6,12 +6,12 @@ The API that interfaces between C4Coin's Regulation A+ Crowdsale website and sma
 
 The main C4Coin Public facing website
 
-* `develop` — [![CircleCI](https://circleci.com/gh/C4Coin/api-regulation-a-plus-crowdsale/tree/develop.svg?style=svg)](https://circleci.com/gh/C4Coin/api-regulation-a-plus-crowdsale/tree/develop) [add codecov badge]
-* `master` — [![CircleCI](https://circleci.com/gh/C4Coin/api-regulation-a-plus-crowdsale/tree/master.svg?style=svg)](https://circleci.com/gh/C4Coin/api-regulation-a-plus-crowdsale/tree/master) [add codecov badge]
+* `develop` — [![CircleCI](https://circleci.com/gh/C4Coin/api-regulation-a-plus-crowdsale/tree/develop.svg?style=svg)](https://circleci.com/gh/C4Coin/api-regulation-a-plus-crowdsale/tree/develop) [![codecov](https://codecov.io/gh/C4Coin/api-regulation-a-plus-crowdsale/branch/develop/graph/badge.svg)](https://codecov.io/gh/C4Coin/api-regulation-a-plus-crowdsale)
+* `master` — [![CircleCI](https://circleci.com/gh/C4Coin/api-regulation-a-plus-crowdsale/tree/master.svg?style=svg)](https://circleci.com/gh/C4Coin/api-regulation-a-plus-crowdsale/tree/master) [![codecov](https://codecov.io/gh/C4Coin/api-regulation-a-plus-crowdsale/branch/master/graph/badge.svg)](https://codecov.io/gh/C4Coin/api-regulation-a-plus-crowdsale)
 
 ## Functional Requirements
 
-_add details_
+The API Server supports the C4Coin Regulation A+ Crowdsale website with the following routes.
 
 ### API Routes
 
@@ -19,23 +19,63 @@ _add details_
 
 Returns a heartbeat response.
 
+    200 Okay
+
     {
-      "response": "okay"
+      "response": "okay",
+      "uptime": secondsSinceServerLaunch
     }
 
-#### `GET /api/v1`
+#### `GET /`
 
-_fill the rest of this in_
+Returns a list of API versions.
+
+    200 Okay
+
+    [
+      {
+        version: 1,
+        path: '/api/v1'
+      }
+    ]
+
+#### `POST /api/v1/login` (_not implemented_)
+
+Logs a user in via simple credentials (can be enhanced later to support 2fa)
+
+Body params
+
+    {
+      username: 'string',
+      password: 'string'
+    }
+
+Returns
+
+    200 Okay
+
+    {
+      token: 'some-jwt-that-must-go-in-the-header-to-remain-logged-in'
+    }
+
+Error Response
+
+    401 Unauthorised
+
+#### `POST /api/v1/logout` (_not implemented_)
+
+Logs a user out
+
+Returns
+
+    200 Okay
 
 ## Development
 
-_add details_
+### Prerequisites
 
-### Development Prerequisites
-
-* [NodeJS](htps://nodejs.org), version 9.5+ (I use [`nvm`](https://github.com/creationix/nvm) to manage Node versions — `brew install nvm`.)
+* [NodeJS](htps://nodejs.org), version 9.6.1 or better (I use [`nvm`](https://github.com/creationix/nvm) to manage Node versions — `brew install nvm`.)
 * [Docker](https://www.docker.com) (Use [Docker for Mac](https://docs.docker.com/docker-for-mac/), not the homebrew version)
-* _add other details_
 
 ### Initialisation
 

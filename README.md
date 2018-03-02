@@ -45,7 +45,8 @@ The API Server supports the C4Coin Regulation A+ Crowdsale website.
 
 * The `login` feature will return a time-limited JOSE token containing encrypted user credentials.
 * all subsequent activities requiring user authentication will extract this token from the `authorization` header.
-* if the token expires a new one can be generated to replace it. From that point the
+* if the token expires a new one can be generated to replace it.
+
 ### API Routes _incomplete_
 
 #### `GET /ping`

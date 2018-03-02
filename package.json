@@ -4,7 +4,7 @@
   "description":
     "An API server that handles interactions for the C4Coin Crowdsale",
   "engines": {
-    "node": "9.6.1",
+    "node": "9.7.1",
     "npm": "5.6.0"
   },
   "main": "index.js",

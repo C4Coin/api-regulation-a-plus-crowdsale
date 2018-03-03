@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 const { expect } = require('chai')
 
 const { outer, test_inner } = require('../fixtures/api')

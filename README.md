@@ -11,9 +11,43 @@ The main C4Coin Public facing website
 
 ## Functional Requirements
 
-The API Server supports the C4Coin Regulation A+ Crowdsale website with the following routes.
+The API Server supports the C4Coin Regulation A+ Crowdsale website.
 
-### API Routes
+* Investor Registration
+* Password Reset
+* Two Factor Auth support (RSA token or similar)
+* Investor login
+
+  - Investor KYC data upload/update (how to verify the person's details?  send a postcard?)
+  - Investor Ethereum Address Registration
+  - Investor Ethereum Address Update
+  - Buy Tokens
+  - Logout
+
+* Admin login
+
+  - Verify Potential Investor's Ethereum Address / KYC data
+  - Unverify Investor Address
+  - set USDConversionRate
+  - finaliseCrowdsale
+
+* Get Public Crowdsale Data
+
+  - startDate (UTC)
+  - endDate (UTC)
+  - tokens sold (integer)
+  - isGoalReached (boolean)
+  - isCapReached (boolean)
+  - investor count
+  - amountRaised (USD)
+
+### Security
+
+* The `login` feature will return a time-limited JOSE token containing encrypted user credentials.
+* all subsequent activities requiring user authentication will extract this token from the `authorization` header.
+* if the token expires a new one can be generated to replace it.
+
+### API Routes _incomplete_
 
 #### `GET /ping`
 
@@ -74,8 +108,9 @@ Returns
 
 ### Prerequisites
 
-* [NodeJS](htps://nodejs.org), version 9.6.1 or better (I use [`nvm`](https://github.com/creationix/nvm) to manage Node versions — `brew install nvm`.)
+* [NodeJS](htps://nodejs.org), version 9.7.1 or better (I use [`nvm`](https://github.com/creationix/nvm) to manage Node versions — `brew install nvm`.)
 * [Docker](https://www.docker.com) (Use [Docker for Mac](https://docs.docker.com/docker-for-mac/), not the homebrew version)
+* [Access to the C4Coin Jira](https://c4coin.atlassian.net)
 
 ### Initialisation
 

@@ -4,11 +4,11 @@ const METHODS = ['get', 'post', 'patch', 'put', 'delete']
 
 const rest = app => {
   const mapRoute = method => {
-    if (routes[method]) {
-      Object.keys(routes[method]).forEach(route => {
-        app[method](route, routes[method][route])
-      })
+    const register = route => {
+      app[method](route, routes[method][route])
     }
+
+    if (routes[method]) Object.keys(routes[method]).forEach(register)
   }
 
   METHODS.forEach(mapRoute)

@@ -15,7 +15,7 @@ jobs:
         - DB_HOST: 127.0.0.1
         - DB_NAME: circle-test
 
-      - image: circleci/postgres:10.3-apline
+      - image: circleci/postgres:10.3-alpine
         environment:
           - POSTGRES_USER: root
           - POSTGRES_PASS: test

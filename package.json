@@ -39,15 +39,14 @@
   "nyc": {
     "check-coverage": true,
     "per-file": true,
-    "lines": 90,
-    "statements": 90,
-    "functions": 99,
-    "branches": 55,
+    "lines": 100,
+    "statements": 100,
+    "functions": 100,
+    "branches": 100,
     "include": ["src/**/*.js"],
     "exclude": [
       "index.js",
       "src/index.js",
-      "src/utils/asyncRoute.js",
       "src/utils/db/dbInit.js",
       "src/utils/db/dbConfig.js"
     ],

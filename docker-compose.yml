@@ -7,7 +7,7 @@ volumes:
 services:
   db:
     # replace username/repo:tag with your name and image details
-    image: postgres:9.6.2
+    image: postgres:10.3
     ports:
       - 5432:5432
     volumes:

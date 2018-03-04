@@ -7,7 +7,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/node:9.6.1
+      - image: circleci/node:9.7.1
         environment:
         - NODE_ENV: test
         - DB_USER: root
@@ -15,7 +15,7 @@ jobs:
         - DB_HOST: 127.0.0.1
         - DB_NAME: circle-test
 
-      - image: circleci/postgres:9.6.2-alpine
+      - image: circleci/postgres:10.3-apline
         environment:
           - POSTGRES_USER: root
           - POSTGRES_PASS: test

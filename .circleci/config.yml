@@ -56,8 +56,8 @@ jobs:
           command: npm run lint
 
       - run:
-          name: Unit Tests
-          command: npm test
+          name: All Unit Tests with Code Coverage
+          command: npm run test:unit:cov
 
       - run:
           name: Database Tests
@@ -66,13 +66,6 @@ jobs:
       - run:
           name: Server Tests
           command: npm run test:server
-
-      # TODO: Work out a way to only do this once.
-      #       Probably by only doing coverage of the unit tests
-      #       and making sure the unit tests cover everything.
-      - run:
-          name: All tests again with code coverage
-          command: npm run test:all:cov
 
       - run:
           name: Push any lockfile changes

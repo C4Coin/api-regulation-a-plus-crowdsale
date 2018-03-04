@@ -1,4 +1,7 @@
 const { expect } = require('chai')
+const proxyquire = require('proxyquire')
+const sinon = require('sinon')
+
 const {
   sequelize,
   dataTypes,
@@ -8,7 +11,14 @@ const {
   checkHandlerDefined
 } = require('../../utils/modelTestHelpers')
 
-const UserModel = require('../../../src/models/User')
+const mockAuthentication = {
+  encrypt: sinon.stub().returnsPromise(),
+  authenticate: sinon.stub().returnsPromise()
+}
+
+const UserModel = proxyquire('../../../src/models/User', {
+  '../utils/authentication': mockAuthentication
+})
 
 describe('User', () => {
   const User = UserModel(sequelize, dataTypes)
@@ -32,6 +42,7 @@ describe('User', () => {
 
     context('preprocessor', () => {
       before(async () => {
+        mockAuthentication.encrypt.resolves('some encrypted value')
         await user.handlers.beforeCreate(user, {})
       })
 
@@ -59,7 +70,20 @@ describe('User', () => {
     ;['username', 'email'].forEach(checkUniqueIndex(user))
   })
 
-  context('authenticate', async () => {
-    expect(await user.authenticate(user.password)).to.be.true
+  context('authenticate', () => {
+    let authenticated
+
+    before(async () => {
+      mockAuthentication.authenticate.resolves(true)
+      authenticated = await user.authenticate(user.password)
+    })
+
+    it('called the authenticate library', () => {
+      expect(mockAuthentication.authenticate).to.have.been.calledOnce
+    })
+
+    it('returned true', () => {
+      expect(authenticated).to.be.true
+    })
   })
 })

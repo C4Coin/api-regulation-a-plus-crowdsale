@@ -45,7 +45,6 @@
     "branches": 100,
     "include": ["src/**/*.js"],
     "exclude": [
-      "index.js",
       "src/index.js",
       "src/utils/db/dbInit.js",
       "src/utils/db/dbConfig.js"

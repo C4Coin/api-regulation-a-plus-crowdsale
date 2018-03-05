@@ -4,8 +4,10 @@ const sinon = require('sinon')
 const asyncRoute = require('../../../src/utils/asyncRoute')
 
 describe('asyncRoute', () => {
+  let asyncFn
+
   context('when the route resolves', () => {
-    let asyncFn = sinon.stub().returnsPromise()
+    asyncFn = sinon.stub().returnsPromise()
 
     before(async () => {
       asyncFn.resolves()
@@ -19,7 +21,8 @@ describe('asyncRoute', () => {
   })
 
   context('when the route throws an error', () => {
-    let asyncFn = sinon.stub().returnsPromise()
+    asyncFn = sinon.stub().returnsPromise()
+
     const errorHandler = sinon.spy()
     const err = 'oops'
 

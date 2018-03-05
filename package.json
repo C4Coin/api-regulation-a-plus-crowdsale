@@ -45,7 +45,6 @@
     "branches": 100,
     "include": ["src/**/*.js"],
     "exclude": [
-      "index.js",
       "src/index.js",
       "src/utils/db/dbInit.js",
       "src/utils/db/dbConfig.js"
@@ -95,6 +94,6 @@
     "pg": "^7.4.0",
     "pg-hstore": "^2.3.2",
     "pgtools": "^0.3.0",
-    "sequelize": "^4.35.1"
+    "sequelize": "^4.35.2"
   }
 }

@@ -5,8 +5,11 @@ const proxyquire = require('proxyquire')
 describe('api/v1', () => {
   const mockTraverse = sinon.spy()
   const mockTraversal = () => mockTraverse
-  const index = proxyquire('../../../../src/api/v1', {
-    '../../utils/traversal': mockTraversal
+
+  before(() => {
+    proxyquire('../../../../src/api/v1', {
+      '../../utils/traversal': mockTraversal
+    })
   })
 
   it('called traversal', () => {

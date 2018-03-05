@@ -3,10 +3,9 @@ const sinon = require('sinon')
 const proxyquire = require('proxyquire')
 const path = require('path')
 
-class mockSequlize {
+class mockSequelize {
   import(fpath) {
-    const lcName = path.basename(fpath, path.extname(fpath))
-    const name = `${lcName[0].toUpperCase()}${lcName.slice(1)}`
+    const name = path.basename(fpath, path.extname(fpath))
     const associate = sinon.spy()
     return { name, associate }
   }
@@ -14,7 +13,7 @@ class mockSequlize {
 
 describe('models', () => {
   const models = proxyquire('../../../src/models', {
-    sequelize: mockSequlize
+    sequelize: mockSequelize
   })
 
   const testModel = mName => {

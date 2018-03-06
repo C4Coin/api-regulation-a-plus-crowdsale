@@ -19,6 +19,14 @@ services:
       POSTGRES_PASSWORD: docker
     networks:
       - apiserver
+  redis:
+    image: redis
+    ports:
+      - 6379:6379
+    healthcheck:
+      test: "exit 0"
+    networks:
+      - apiserver
   server:
     build: .
     ports:

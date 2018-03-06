@@ -1,5 +1,6 @@
 const makeApp = require('./utils/appMaker')
 const dbInit = require('./utils/db/dbInit')
+const queue = require('./utils/queue/queueInit')
 const models = require('./models')
 
 const PORT = process.env.PORT || 3000
@@ -20,6 +21,7 @@ const start = async () => {
   await models.sequelize.sync({ force: forceSync() })
   const app = makeApp()
   const server = await app.listen(PORT)
+  queue.add({ data: 'Yeehahaaa' })
   return { server, db: models.sequelize }
 }
 

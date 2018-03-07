@@ -16,6 +16,7 @@
     "prettier": "prettier --single-quote --no-semi --write '**/*.{js,json}'",
     "seed": "node tasks/seed",
     "start": "node index.js",
+    "backend": "docker-compose up -d db redis",
     "start:production": "NODE_ENV=production node dist/index",
     "test": "npm run test:unit",
     "test:all": "npm run test:unit; npm run test:integration",
@@ -47,7 +48,9 @@
     "exclude": [
       "src/index.js",
       "src/utils/db/dbInit.js",
-      "src/utils/db/dbConfig.js"
+      "src/utils/db/dbConfig.js",
+      "src/utils/queue/queueInit.js",
+      "src/utils/queue/queueConfig.js"
     ],
     "reporter": ["lcov", "text"],
     "all": true,

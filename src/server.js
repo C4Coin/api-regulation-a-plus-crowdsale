@@ -1,11 +1,11 @@
 const makeApp = require('./utils/appMaker')
 const dbInit = require('./utils/db/dbInit')
-const queue = require('./utils/queue/queueInit')
+const { env } = require('./utils/config')
 const models = require('./models')
+const jobs = require('./jobs')
 
 const PORT = process.env.PORT || 3000
 
-const env = process.env.NODE_ENV || /* istanbul ignore next */ 'development'
 const isDevelopment = env === 'development'
 
 const forceSync = () =>
@@ -21,8 +21,12 @@ const start = async () => {
   await models.sequelize.sync({ force: forceSync() })
   const app = makeApp()
   const server = await app.listen(PORT)
-  queue.add({ data: 'Yeehahaaa' })
-  return { server, db: models.sequelize }
+  // just a test
+  jobs.on('completed', (job, result) => {
+    console.debug('result', result)
+  })
+  jobs.add('hello', 'Yeehahaaa')
+  return { server, db: models.sequelize, jobs }
 }
 
 module.exports = {

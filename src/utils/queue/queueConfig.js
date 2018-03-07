@@ -1,26 +1,6 @@
-const path = require('path')
+const { queue: config, env } = require('../config')
 
-const env = process.env.NODE_ENV || 'development'
-
-// eslint-disable-next-line import/no-dynamic-require
-let config = require(path.join(
-  __dirname,
-  '..',
-  '..',
-  '..',
-  'config',
-  'config.json'
-))[env]
-
-if (process.env.REDIS_URL) {
-  config = {
-    ...config,
-    ...parseQueueUrl(process.env.REDIS_URL)
-  }
-}
-
-const queueName =
-  process.env.QUEUE_NAME || config.queueName || `c4coin-api-queue-${env}`
+const name = process.env.QUEUE_NAME || config.name || `c4coin-api-queue-${env}`
 
 const options = {
   redis: {
@@ -30,7 +10,4 @@ const options = {
   }
 }
 
-module.exports = {
-  queueName,
-  options
-}
+module.exports = { name, options }

@@ -1,25 +1,4 @@
-const path = require('path')
-
-const parseDatabaseUrl = require('./dbUrlParser')
-
-const env = process.env.NODE_ENV || 'development'
-
-// eslint-disable-next-line import/no-dynamic-require
-let config = require(path.join(
-  __dirname,
-  '..',
-  '..',
-  '..',
-  'config',
-  'config.json'
-))[env]
-
-if (process.env.DATABASE_URL) {
-  config = {
-    ...config,
-    ...parseDatabaseUrl(process.env.DATABASE_URL)
-  }
-}
+const { db: config, env } = require('../config')
 
 const dbName = process.env.DB_NAME || config.database || `c4coin-api-${env}`
 const dbUser = process.env.DB_USER || config.username || null

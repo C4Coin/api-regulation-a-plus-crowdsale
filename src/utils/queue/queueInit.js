@@ -1,8 +1,7 @@
 const Queue = require('bull')
-const hello = require('../../tasks/hello')
 
-const queue = new Queue('my queue', 'redis://127.0.0.1:6379')
+const { queueName, options } = require('./queueConfig')
 
-queue.process(hello)
+const queue = new Queue(queueName, options)
 
-module.exports = queue
+module.exports = task => queue.process(task)

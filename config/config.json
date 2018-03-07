@@ -4,20 +4,23 @@
     "password": "docker",
     "database": "c4coin-api-cs-dev",
     "host": "localhost",
-    "dialect": "postgres"
+    "dialect": "postgres",
+    "queueName": "c4coin-api-queue-dev"
   },
   "test": {
     "username": "docker",
     "password": "docker",
     "database": "c4coin-api-cs-test",
     "host": "localhost",
-    "dialect": "postgres"
+    "dialect": "postgres",
+    "queueName": "c4coin-api-queue-test"
   },
   "production": {
     "username": "docker",
     "password": "docker",
     "database": "c4coin-api-cs-prod",
     "host": "localhost",
-    "dialect": "postgres"
+    "dialect": "postgres",
+    "queueName": "c4coin-api-queue-prod"
   }
 }

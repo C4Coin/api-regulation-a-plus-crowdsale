@@ -21,11 +21,7 @@ const start = async () => {
   await models.sequelize.sync({ force: forceSync() })
   const app = makeApp()
   const server = await app.listen(PORT)
-  // just a test
-  jobs.on('completed', (job, result) => {
-    console.debug('result', result)
-  })
-  jobs.add('hello', 'Yeehahaaa')
+
   return { server, db: models.sequelize, jobs }
 }
 

@@ -49,7 +49,7 @@
       "src/index.js",
       "src/utils/db/dbInit.js",
       "src/utils/db/dbConfig.js",
-      "src/utils/queue/queueInit.js",
+      "src/utils/queue/createQueueClient.js",
       "src/utils/queue/queueConfig.js"
     ],
     "reporter": ["lcov", "text"],
@@ -94,6 +94,7 @@
     "bull": "^3.3.10",
     "cors": "^2.8.4",
     "express": "^4.16.2",
+    "ioredis": "^3.2.2",
     "js-yaml": "^3.10.0",
     "pg": "^7.4.0",
     "pg-hstore": "^2.3.2",

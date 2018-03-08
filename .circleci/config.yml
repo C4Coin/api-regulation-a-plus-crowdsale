@@ -21,6 +21,14 @@ jobs:
           - POSTGRES_PASS: test
           - POSTGRES_DB: circle-test
 
+      - image: circleci/postgres:10.3-alpine
+        environment:
+          - POSTGRES_USER: root
+          - POSTGRES_PASS: test
+          - POSTGRES_DB: circle-test
+
+      - image: redis
+
     steps:
       - checkout
 

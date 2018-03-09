@@ -16,6 +16,7 @@
     "prettier": "prettier --single-quote --no-semi --write '**/*.{js,json}'",
     "seed": "node tasks/seed",
     "start": "node index.js",
+    "backend": "docker-compose up -d db redis",
     "start:production": "NODE_ENV=production node dist/index",
     "test": "npm run test:unit",
     "test:all": "npm run test:unit; npm run test:integration",
@@ -47,7 +48,9 @@
     "exclude": [
       "src/index.js",
       "src/utils/db/dbInit.js",
-      "src/utils/db/dbConfig.js"
+      "src/utils/db/dbConfig.js",
+      "src/utils/queue/createQueueClient.js",
+      "src/utils/queue/queueConfig.js"
     ],
     "reporter": ["lcov", "text"],
     "all": true,
@@ -88,8 +91,10 @@
     "https://github.com/C4Coin/api-regulation-a-plus-crowdsale#readme",
   "dependencies": {
     "bcrypt": "^1.0.3",
+    "bull": "^3.3.10",
     "cors": "^2.8.4",
     "express": "^4.16.2",
+    "ioredis": "^3.2.2",
     "js-yaml": "^3.10.0",
     "pg": "^7.4.0",
     "pg-hstore": "^2.3.2",

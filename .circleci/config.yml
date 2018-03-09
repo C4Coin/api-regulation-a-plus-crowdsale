@@ -21,6 +21,8 @@ jobs:
           - POSTGRES_PASS: test
           - POSTGRES_DB: circle-test
 
+      - image: redis
+
     steps:
       - checkout
 

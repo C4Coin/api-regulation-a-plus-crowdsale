@@ -1,10 +1,11 @@
 const makeApp = require('./utils/appMaker')
 const dbInit = require('./utils/db/dbInit')
+const { env } = require('./utils/config')
 const models = require('./models')
+const jobs = require('./jobs')
 
 const PORT = process.env.PORT || 3000
 
-const env = process.env.NODE_ENV || /* istanbul ignore next */ 'development'
 const isDevelopment = env === 'development'
 
 const forceSync = () =>
@@ -20,7 +21,8 @@ const start = async () => {
   await models.sequelize.sync({ force: forceSync() })
   const app = makeApp()
   const server = await app.listen(PORT)
-  return { server, db: models.sequelize }
+
+  return { server, db: models.sequelize, jobs }
 }
 
 module.exports = {

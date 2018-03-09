@@ -5,14 +5,16 @@ const { start } = require('../../src/server')
 describe('Routes', () => {
   let server
   let db
+  let jobs
 
   before(async () => {
-    ;({ server, db } = await start())
+    ;({ server, db, jobs } = await start())
   })
 
-  after(() => {
+  after(async () => {
     server.close()
     db.close()
+    await jobs.close()
   })
 
   describe('/', () => {

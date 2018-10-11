@@ -71,7 +71,7 @@
     "eslint-plugin-promise": "^3.7.0",
     "eslint-plugin-standard": "^3.1.0",
     "faker": "^4.1.0",
-    "husky": "^0.14.3",
+    "husky": "^1.1.2",
     "lint-staged": "^7.0.5",
     "mocha": "^5.1.1",
     "mocha-prepare-promise": "0.0.1",

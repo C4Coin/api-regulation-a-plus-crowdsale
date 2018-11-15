@@ -91,7 +91,7 @@
     "https://github.com/C4Coin/api-regulation-a-plus-crowdsale#readme",
   "dependencies": {
     "bcrypt": "^2.0.1",
-    "bull": "^3.4.1",
+    "bull": "^3.5.2",
     "cors": "^2.8.4",
     "express": "^4.16.3",
     "ioredis": "^3.2.2",
